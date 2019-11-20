@@ -52,7 +52,7 @@ Binary Tree Total Tilt
 Count Univalue Subtrees      
 Most Frequent Subtree Sum     
 Lowest Common Ancestor of a Binary Tree     
-Count Complete Tree Nodes (lHeight, rHeight)       
+Count Nodes for Complete Tree  `(lHeight, rHeight)` `binary search #leaves`       
 Smallest Subtree with all the Deepest Nodes      
 Find Leaves of Binary Tree **(distance to leaves)**     
 Second Minimum Node In a Binary Tree **(pruning)**     
