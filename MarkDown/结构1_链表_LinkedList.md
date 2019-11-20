@@ -55,7 +55,7 @@ Linked List Cycle II (find where the cycle begins) `龟兔算法`
 Delete Linked List Elements `基本操作 O(n)`     
 Delete Node in a Linked List (无 head 指针) `与下一节点交换，删除下一节点`   
 Remove N-th Node From End of List (只能过一遍) `双指针，一个先走N步`    
-**Insert into a Cyclic Sorted List**    
+**Insert into a Cyclic Sorted List** `空表？单元素？最大/最小值？放在衔接点`   
 
 ### reverse list (见上)
 Reverse Linked List I (reverse 1::N)   
