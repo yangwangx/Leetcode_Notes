@@ -1,21 +1,7 @@
 ## Heap (heapq)
-``` python
-class element:
-    def __init__(self, x): self.x = x
-    def __lt__(self, other): return self.x < other.x
-    def __repr__(self): return repr(self.x)
-    
-from heapq import *
-heapify(heap)
-heappush(heap, k)
-heappop(heap)
-heappushpop(heap, k)  # -> push -> pop
-heapreplace(heap, k)  # -> pop -> push
+[source code for python heapq](https://github.com/python/cpython/blob/2.7/Lib/heapq.py)     
+O(n) heapify `bottom up`     
 
-nlargest( 3, (element(x) for x in range(10)) )
-nsmallest( 3, (element(x) for x in range(10)) )
-single_sorted_iterables = heapq.merge(*list_of_sorted_iterables)
-```
 ### max/min/k-th/median
 Kth Largest Element in a Stream  `min heap of size K`       
 Kth Largest Element in an Array `min heap of size K`    
@@ -39,38 +25,11 @@ Trapping Rain Water I (1D) `BFS heap[boundary]`
 Trapping Rain Water II (2D)  `BFS heap[boundary]`      
 
 ### max/min/k-th/median @ sliding window
-**Sliding Window Maximum** `hard`       
-**Sliding Window Median** `hard`       
-
-``` python
-### sliding window maximum ### 
-def maxSlidingWindow(self, nums, k):
-    if not nums: return []
-    if k == 1: return nums
-    deq = collections.deque()
-    result = []
-
-    for i in range(k):
-        while len(deq) != 0:
-            if nums[i] > nums[deq[-1]]: deq.pop()
-            else: break
-        deq.append(i)
-    result.append(nums[deq[0]])
-
-    for i in range(k, len(nums)):
-        if deq[0] < i - k + 1: deq.popleft()
-        while len(deq) != 0:
-            if nums[i] > nums[deq[-1]]: deq.pop()
-            else: break
-        deq.append(i)
-        result.append(nums[deq[0]])
-
-    return result
-```
+**Sliding Window Maximum** `monotone queue`       
+**Sliding Window Median** `two heaps`       
 
 ### 还没做
 **Minimum Cost to Hire K Workers**       
-**Split Array into Consecutive Subsequences**        
 **Reachable Nodes In Subdivided Graph**      
 
 ### hard
@@ -79,7 +38,7 @@ def maxSlidingWindow(self, nums, k):
 **Minimum Number of Refueling Stops** `hard`       
 **IPO** `hard`     
 
-The Skyline Problem `hard`     
+**The Skyline Problem** `hard`     
 
 ``` python
 def getSkyline(self, buildings):
@@ -97,4 +56,21 @@ def getSkyline(self, buildings):
                     while x >= maxH[0][1]: heapq.heappop(maxH)
                     if -maxH[0][0] < h: res.append([x, -maxH[0][0]])
         return res
+```
+
+``` python
+class element:
+    def __init__(self, x): self.x = x
+    def __lt__(self, other): return self.x < other.x
+    
+from heapq import *
+heapify(heap)
+heappush(heap, k)
+heappop(heap)
+heappushpop(heap, k)  # -> push -> pop
+heapreplace(heap, k)  # -> pop -> push
+
+nlargest( 3, (element(x) for x in range(10)) )
+nsmallest( 3, (element(x) for x in range(10)) )
+single_sorted_iterables = heapq.merge(*list_of_sorted_iterables)
 ```

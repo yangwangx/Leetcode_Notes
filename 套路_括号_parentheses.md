@@ -11,6 +11,7 @@ Valid Parentheses (mixed) `{([])[()]}` `stack`
 Valid Parentheses (wild) `*(()` `两栈(左, *)index, 比较剩余`      
 
 Minimum Add to Make Parentheses Valid `容易, stack_sz` `try: ()))((`        
+Remove Outermost Parentheses `容易, stack_sz`    
 
 Score of Parentheses  `遇到 core() 就加 2^stack_sz`        
 
@@ -20,6 +21,7 @@ Remove Invalid Parentheses (return one) `两遍: 向后向前` `一遍: 两栈(�
 Generate Parentheses `回溯 dfs(path="", left=n, right=n)`      
 
 Longest Valid Parentheses  `dp[i] for s[..@i]` `前左 ?()` `前右 ??(--))`         
+
 
 
 ``` python

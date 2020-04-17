@@ -24,7 +24,15 @@ Longest Palindrome Subsequence `DP`
 **Palindrome Partitioning II (min cut)**  `DP`                  
 
 
+### strobogrammatic number 旋转对称数; Confusing Number  旋转不对称数
+```0/0,1/1,6/9,8/8```
 
+(1) Is Strobogrammatic Number `easy` `meeting pointers`    
+(2) All Strobogrammatic Numbers of Length n `dfs` `奇偶数`     
+(3) Count Strobogrammatic Numbers in Range [low="50", high="100"] `基于上一题求解`             
+
+(1) Is Confusing Number `easy` `do the rotation`     
+(2) Count Confusing Numbers in Range [1, N] `dfs`            
 
 ### Rolling Hash
 ``` python

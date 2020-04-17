@@ -3,6 +3,9 @@ from collections import Counter, defaultdict, ....
 collections.Counter(list).most_common()
 collections.defaultdict(int) or (list) or (set) or (?)
 
+from collections import OrderedDict
+from sortedcollections import SortedDict, SortedSet
+
 """to use heapq, no need to define new class with __lt__ function
 just use tuple (major, minor, ...). tuple has __lt__ function already"""
 from heapq import heappush, heappop, heapify
@@ -44,3 +47,6 @@ combinations_with_replacement, permutations
 itertools.product(*[list, list])     # returns tuple
 from functools import reduce
 ```
+
+
+![Python Bisect](images/bisect.png)

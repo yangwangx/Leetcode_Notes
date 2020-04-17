@@ -16,7 +16,7 @@ Overlaps of Two List of Intervals `双指针：移动结束早的 + 区间合并
 Minimum Intervals to cover the Target Interval `贪婪: 覆盖 target.start，结束最晚`       
 
 ### Calendar
-**My Calendar I (no double booking)**  `bisect.bisect_left` `bisect.insort_left`          
+**My Calendar I (no double booking)**  `binary search tree`          
 **My Calendar II (no triple booking)**  `events, overlaps`                 
 **My Calendar III (max K booking)**  `(OPEN, CLOSE)` `balance[s] += 1; balance[e] -= 1`                
 
@@ -28,3 +28,16 @@ Minimum Intervals to cover the Target Interval `贪婪: 覆盖 target.start，�
 **Maximum Sum of 3 Non-Overlapping Subarrays ?**                   
 **Random Pick with Blacklist**                    
 **Set Intersection Size At Least Two**                   
+
+
+
+### 还没做
+
+Teemo Attacking      
+Add Bold Tag in String        
+Range Module       
+Partition Labels       
+Interval List Intersections     
+Remove Covered Intervals    
+Remove Interval     
+Integer Replacement      

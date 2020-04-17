@@ -26,7 +26,7 @@ for (int i=0; i < vec.size(); i++)
 for (vector<int>::iterator itr = vec.begin(); itr!= vec.end(); ++itr) 
    cout << *itr << " ";  // recommended
 
-for (it: vec)    // C++ 11
+for (auto& it: vec)    // C++ 11
    cout << it << " ";
 
 // Vector is a dynamically allocated contiguous array in memory

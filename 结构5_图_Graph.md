@@ -12,23 +12,29 @@ Keys and Rooms `bfs [initial room]`
 Minimum Height Trees  `bfs [leaf nodes]`       
 **K-Similar Strings (K swaps)**        
 Clone Graph  `old2new`    
+Open the Lock (minimum step) [`bfs`](https://leetcode.com/problems/open-the-lock/solution/)   
 
 ### shortest path
-Evaluate Division `all-pairs`       
+Evaluate Division `all-pairs` `BFS & path compression`              
 Network Delay Time `Dijkstra Algorithm`      
 Cheapest Flights Within K Stops  `Bellman_Ford_Within_(K+1)`   
-The Maze I (hasPath) `bfs` `rolling ball`    
-**The Maze II (shortest distance)**   
+**The Maze I (hasPath)** [`bfs` `rolling ball`](https://leetcode.com/problems/the-maze/discuss/97074/Python-BFS-solution)    
+**The Maze II (shortest distance)** `Dijkstra with heap`    
 **The Maze III (shortest path to hole)**   
 
 ### Topological Sort (dfs: postorder) (bfs: indegree)
 
 Detect Cycle in Directed Graph  `any cycle` `dfs: visited=0,1,2`     
 Course Schedule I  `any cycle` `dfs: visited=0,1,2`     
-Course Schedule II `any topsort`  `dfs: visited=0,1,2`     
+Course Schedule II [`any topsort` `dfs: visited=0,1,2`](https://leetcode.com/problems/course-schedule-ii/discuss/190393/Topological-Sort-Template-General-Approach!!)     
 Alien Dictionary `any topsort` `dfs: visited=0,1,2`        
-Sequence Reconstruction  **`unique topsort`** `bfs: [0-indegree]`  
+Sequence Reconstruction  **`unique topsort`** [`bfs: [0-indegree]`](https://leetcode.com/problems/sequence-reconstruction/discuss/92578/Brief-python-solution-using-topological-sort)  
 
+### Eulerian Path
+Cracking the Safe `d`    
+
+### Smart 烧脑题
+**String Transforms Into Another String** [`建立字母转换图，edge起点不能冲突，每次转换相当于edge 起点移动` `只要有一个字母入度为0，不构成全环路即可`](https://leetcode.com/problems/string-transforms-into-another-string/discuss/355382/JavaC%2B%2BPython-Need-One-Unused-Character)       
 
 
 ### [以下 Notes 总结于 Graph 系列视频](https://www.youtube.com/watch?v=eQA-m22wjTQ&list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
@@ -80,13 +86,37 @@ while bfs:
             bfs.append(to)
 ```
 
+* **A\* Search** (Dijkstra is a special case with zero heuristic)
+
+```
+todo = [(0, 0, start)]  # sofar + heuristic, sofar, state
+done = set()
+cost = {start: 0}
+while todo:
+    estim, sofar, at = heapq.heappop(todo)
+    if at == goal: return sofar
+    if estim > cost[at]: continue  # expired
+    done.add(at)
+    for to in at.neighbors:
+        if to not in done:
+            new_sofar = sofar + edge[at][to]
+            new_estim = new_sofar + heuristic(to)
+            if new_estim < cost.get(to, float('inf')):
+                cost[to] = new_estim
+                heapq.heappush(todo, (new_estim, new_sofar, to))
+return -1
+```
+
 * **Eulerian Path/Circuit (All Edges Once)**
   * Existence `Connected Component` `Ignore Singletons`
      * Circuit @ Undirected: even degree; @ Directed: indegree == outdegree
      * Path @ Undirected: zero or two odd degree; @ Directed: at most one out-in==1, at most one in-out==1, rest in==out
-  * Path 
+  * Path  
      * `dfs + post-order`, similar to `TopoSort`
-     * ``` def dfs(at): while G[at]: dfs(G[at].pop(0)); path.append(at)``` 
+     * directed:    
+     * ``` def dfs(at): while G[at]: dfs(G[at].pop(0)); path.append(at)```   
+     * undirected:
+     * `check bridge edge` `#reach_with - #reach_without`   
 * **Topological Sort on DAG**
   * `DFS + post-order`
   * `BFS + queue[0-indegree nodes]`
@@ -96,8 +126,10 @@ while bfs:
 * **Single Source Shortest Path on Unweighted Graph**
   * BFS
 * **Single Source Shortest Path on Weighted Graph**
-  * Dijkstra's `O((E+V)logV)` `non-negative edge weights`
-  * Bellman-Ford `O(VE)` `has negative edge weights`
+  * Dijkstra's `O((E+V)logV)` `non-negative edge weights`   
+  * `过点: 未标记的 距离最小的 点`	  
+  * Bellman-Ford `O(VE)` `has negative edge weights`  
+  * `过边：无所谓`  
 
 ``` python
 dist[u] # shortest distance from s to u
@@ -114,12 +146,12 @@ todo = [(0, s)]
 done = [False ...]
 while todo: 
     minVal, u = heappop(todo)
-    if dist[u] < minVal: continue       # ignore u
+    if minVal > dist[u]: continue  # lazy update: ignore expired u
     done[u] = True
     for v in E[u]:
         if not done[v]:
             if edge_relax(s -> u -> v):
-                heappush(todo, (dist[v], v))  # lazy update, duplicate nodes
+                heappush(todo, (dist[v], v))  # lazy update: allow duplicates
 
 # def Bellman_Ford(V, E, s)
 for k in range(|V|-1): for (u, v) in E: edge_relax(s -> u -> v)
@@ -152,8 +184,10 @@ for k in V: for (i, j) in E: if edge_relax(i -> k -> j): dist[i][j] = -inf
 ```
 
 * **Minimum Spanning Tree**
-  * Kruskal's `sort edges` `union find` 
-  * Prim's `similar to Dijkstra's`
+  * Kruskal's `sort edges` `union find`    
+  * `过边：最小边，避免成环` 
+  * Prim's `similar to Dijkstra's`   
+  * `过点：未标记的 edge最小 的点`  
 
 * **Bridges and Articulation Points (Undirected Graph)**
   * bridge condition: `id[u] < low[v]`

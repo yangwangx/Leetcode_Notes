@@ -77,15 +77,15 @@ Add Two Numbers
 Add Two Numbers II (reverse) (no-reverse: stack)      
 
 ### break points
-Linked List Components **(hashset, count finish)**   
+Linked List Components  (标记`0->1`->2->`3->4`) [`count tail`](https://leetcode.com/problems/linked-list-components/discuss/123842/C%2B%2BJavaPython-Easy-and-Concise-Solution-with-Explanation)     
 Remove Duplicates from Sorted List    
 Remove Duplicates from Sorted List II   
 
 ### sort list
 Merge 2 Sorted Lists    
 Merge K Sorted Lists  `divide & conquer` `heap`   
+**Insertion Sort List**  [`指针操作`](https://leetcode.com/problems/insertion-sort-list/discuss/190913/Java-Python-with-Explanations)     
 <!--**Merge Sort List**-->         
-<!--**Insertion Sort List**-->       
 
 ### Smart (烧脑题)
 Intersection of Two Linked Lists (8字形)    

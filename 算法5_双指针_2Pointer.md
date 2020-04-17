@@ -12,17 +12,20 @@ Palindrome Linked List
 ### Meeting Pointers (2-Sum, water): 排除法
 2Sum (unsorted) `Hash`           
 2Sum (sorted) `meeting`           
+2Sum Less Than K `meeting`    
 3Sum (sorted) `meeting, 2Sum, 去重`                       
 4Sum (sorted)   `meeting, 3Sum`      
 3Sum closest to target  `meeting`                     
 3Sum smaller than target count                  
 3Sum With Multiplicity `去重`                         
+[4Sum II (4 array)](https://leetcode.com/problems/4sum-ii/discuss/93917/Easy-2-lines-O(N2)-Python)      
 Trapping Rain Water `bfs` `pop shorter bin`        
 Container With Most Water  `move shorter bin`      
 Find the Celebrity `排除法` `double check`       
 Search a 2D Matrix II `topright start`     
 Reverse String   `easy`                   
 Reverse Vowels of a String `easy`                     
+Squares of a Sorted Array `[-4,-1,0,3,10]`    
 
 ### Tail （洗牌问题: ABABA -> AAABB)
 Move Zeros to End `AB`      
@@ -52,7 +55,7 @@ Longest Repeating Character Replacement `w - count(major)<=k`
 
 Minimum Size Subarray Sum $\ge k$ `window_sum`       
 **Minimum Window Substring covering T** `Counter(T)`           
-
+Minimum Window Subsequence covering T  `正向搜索右指针，反向搜索左指针`         
 
 
 

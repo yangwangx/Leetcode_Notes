@@ -9,7 +9,7 @@ bin(5)        # 输出 '0b101'
 Single Number I (2+1)   `xor`      
 Single Number III (2+1+1) `xor, any set bit, two groups`      
 Single Number II (3+1)  `base-3 counter`       
-Missing Number `(index, value) 转化为 single number`                    
+Missing Number `(^i)^(^a[i])` `转化为 single number`                    
 
 Number of 1 Bits `bin(n).count('1')`        
 Hamming Distance `bin(x^y).count('1')`                      
@@ -60,7 +60,16 @@ def findComplement(n):
     return n
 ```
 
+### bit set
 
+Maximum Product of Word Lengths 没有交集 [`bit_set`](https://leetcode.com/problems/maximum-product-of-word-lengths/solution/)                   
+
+``` python
+bitset = 0
+for c in 'abcd':
+     n = ord(c) - ord('a')
+     bitset |= 1<<n
+```
 ### 没做
 Majority Element                       
 
@@ -78,7 +87,7 @@ Power of Four
 
 Find the Difference                    
 Bitwise AND of Numbers Range                       
-Maximum Product of Word Lengths                    
+
 Binary Watch                       
 
 Letter Case Permutation                    
